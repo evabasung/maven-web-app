@@ -2,9 +2,16 @@ package com.mavenwebapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class MavenWebAppApplication {
+public class MavenWebAppApplication extends SpringBootServletInitializer {
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(MavenWebAppApplication.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(MavenWebAppApplication.class, args);
